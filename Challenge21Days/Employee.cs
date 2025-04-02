@@ -5,8 +5,10 @@
         List<int> Scores = new List<int>();
 
         private int score = 0;
-        public string Login { get; private set; }
-        public string Password { get; private set; }
+        public string Name { get; private set; }
+        public string LastName { get; private set; }
+        public int Age { get; private set; }
+
         public int Result
         {
             get
@@ -14,10 +16,11 @@
                 return this.Scores.Sum();
             }
         }
-        public Employee(string login, string password)
+        public Employee(string login, string lastName, int age)
         {
-            this.Login = login;
-            this.Password = password;
+            this.Name = login;
+            this.LastName = lastName;
+            this.Age = age;
         }
 
         public void AddGrade(int score)
