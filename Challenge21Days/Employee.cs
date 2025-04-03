@@ -16,11 +16,17 @@
                 return this.Scores.Sum();
             }
         }
-        public Employee(string login, string lastName, int age)
+        public Employee(string name, string lastName, int age)
         {
-            this.Name = login;
+            this.Name = name;
             this.LastName = lastName;
             this.Age = age;
+        }
+        public Employee(string name)
+        {
+            this.Name = name;
+            this.LastName = "Brak nazwiska";
+            this.Age = 0;
         }
 
         public void AddGrade(int score)
