@@ -1,6 +1,6 @@
 ﻿namespace Challenge21Days
 {
-    class Employee
+    public class Employee
     {
         List<int> Scores = new List<int>();
 
