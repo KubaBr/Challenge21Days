@@ -2,36 +2,62 @@
 {
     public class Employee
     {
-        List<int> Scores = new List<int>();
+        List<float> grades = new List<float>();
 
-        private int score = 0;
+
         public string Name { get; private set; }
         public string LastName { get; private set; }
-        public int Age { get; private set; }
 
-        public int Result
+
+        public float Result
         {
             get
             {
-                return this.Scores.Sum();
+                return this.grades.Sum();
             }
         }
-        public Employee(string name, string lastName, int age)
+        public Employee(string name, string lastName)
         {
             this.Name = name;
             this.LastName = lastName;
-            this.Age = age;
         }
         public Employee(string name)
         {
             this.Name = name;
             this.LastName = "Brak nazwiska";
-            this.Age = 0;
+
         }
 
-        public void AddGrade(int score)
+        public void AddGrade(float grade)
         {
-            this.Scores.Add(score);
+            this.grades.Add(grade);
         }
+
+        public Statistics GetStatistics()
+        {
+            var statistics = new Statistics();
+
+            statistics.Avarage = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            foreach (var grade in this.grades)
+            {
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Avarage += grade;
+
+            }
+            statistics.Avarage /= this.grades.Count;
+
+            return statistics;
+        }
+
+        //testy do usera z uwzględnieniem statystyk,
+        //testy sprawdzająca, czy metoda zwracająca statystki działa prawidłow,
+        //
+
+
+
     }
 }

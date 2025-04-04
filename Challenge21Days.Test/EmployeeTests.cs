@@ -2,13 +2,13 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Challenge21Days.Test
 {
-    public class Tests
+    public class EmployeeTests
     {
         [Test]
         public void CheckIfResultAddedCorrectly()
         {
             //arrange
-            var testUser = new Employee("Robert", "Testowy", 35);
+            var testUser = new Employee("Robert", "Testowy");
             testUser.AddGrade(10);
             testUser.AddGrade(7);
 
@@ -26,12 +26,11 @@ namespace Challenge21Days.Test
             string testLastName = "Tester";
             int testAge = 77;
             //act
-            var testUser1 = new Employee("Edward", "Tester", 77);
+            var testUser1 = new Employee("Edward", "Tester");
             //assert
 
             Assert.AreEqual(testName, testUser1.Name);
             Assert.AreEqual(testLastName, testUser1.LastName);
-            Assert.AreEqual(testAge, testUser1.Age);
             Assert.AreEqual(0, testUser1.Result);
 
         }
@@ -39,7 +38,7 @@ namespace Challenge21Days.Test
         public void CheckIfResultCanBeNegative()
         {
             //arrange
-            var testUser = new Employee("Kasia", "Testówna", 22);
+            var testUser = new Employee("Kasia", "Testówna");
             testUser.AddGrade(10);
             testUser.AddGrade(7);
             testUser.AddGrade(-7);
