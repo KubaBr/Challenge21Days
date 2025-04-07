@@ -30,7 +30,60 @@
 
         public void AddGrade(float grade)
         {
-            this.grades.Add(grade);
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("Grade out of the scope");
+            }
+        }
+        public void AddGrade(int grade)
+        {
+            float result = (int)grade;
+            this.AddGrade(result);
+        }
+
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine("String is not possible to convert");
+            }
+        }
+
+        public void AddGrade(double grade)
+        {
+            if (grade <= float.MaxValue && grade >= float.MinValue)
+            {
+                float result = (float)grade;
+                this.AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine("Number outside float range");
+            }
+
+        }
+
+        public void AddGrade(long grade)
+        {
+
+            if (grade <= float.MaxValue && grade >= float.MinValue)
+            {
+                float result = (float)grade;
+                this.AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine("Number outside float range");
+            }
+
         }
 
         public Statistics GetStatistics()
