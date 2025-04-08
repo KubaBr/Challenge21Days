@@ -1,4 +1,6 @@
-﻿namespace Challenge21Days
+﻿using System.Diagnostics;
+
+namespace Challenge21Days
 {
     public class Employee
     {
@@ -94,6 +96,7 @@
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
 
+
             foreach (var grade in this.grades)
             {
                 statistics.Max = Math.Max(statistics.Max, grade);
@@ -105,11 +108,77 @@
 
             return statistics;
         }
+        public Statistics GetStatisticsFor()
+        {
+            var statistics = new Statistics();
+            statistics.Avarage = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
 
-        //testy do usera z uwzględnieniem statystyk,
-        //testy sprawdzająca, czy metoda zwracająca statystki działa prawidłow,
-        //
 
+
+            for(var index = 0; index < grades.Count; index++)
+            {
+                statistics.Max = Math.Max(statistics.Max, grades[index]);
+                statistics.Min = Math.Min(statistics.Min, grades[index]);
+                statistics.Avarage += grades[index];
+
+            }
+            statistics.Avarage /= this.grades.Count;
+
+
+            return statistics;
+        }       
+        public Statistics GetStatisticsDoWhile()
+        {
+            var statistics = new Statistics();
+            statistics.Avarage = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            var index = 0;
+
+            do
+            {
+                statistics.Max = Math.Max(statistics.Max, grades[index]);
+                statistics.Min = Math.Min(statistics.Min, grades[index]);
+                statistics.Avarage += grades[index];
+                index++;
+            } while (index < grades.Count);
+
+            statistics.Avarage /= this.grades.Count;
+
+
+            return statistics;
+        }  
+        public Statistics GetStatisticsWhile()
+        {
+            var statistics = new Statistics();
+            statistics.Avarage = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            var index = 0;
+
+            while (index < grades.Count)
+            {
+                statistics.Max = Math.Max(statistics.Max, grades[index]);
+                statistics.Min = Math.Min(statistics.Min, grades[index]);
+                statistics.Avarage += grades[index];
+                index++;
+            } 
+
+            statistics.Avarage /= this.grades.Count;
+
+
+            return statistics;
+        }
+
+
+        //metoda GetStatistics dla foreach,
+        //metoda GetStatistics dla for
+        //metoda GetStatistics dla doWhile
+        //metoda GetStatistics dla while
 
 
     }
