@@ -35,21 +35,32 @@ namespace Challenge21Days.Test
 
         }
         [Test]
-        public void CheckIfResultCanBeNegative()
+        public void CheckIfLetterGradesWorksProperly()
         {
-            //arrange
-            var testUser = new Employee("Kasia", "Testówna");
-            testUser.AddGrade(10);
-            testUser.AddGrade(7);
-            testUser.AddGrade(-7);
-            testUser.AddGrade(-6);
-            testUser.AddGrade(-6);
+            Employee testUser = new Employee("Mieczys³aw", "Mieczys³awski");
+            testUser.AddGrade('A');
+            testUser.AddGrade('c');
+            var statistics = testUser.GetStatistics();
 
+            var result = statistics.Avarage;
 
-            //act
-            var result = testUser.Result;
-            //assert
-            Assert.AreEqual(-2, result);
+            Assert.AreEqual(80, result);
+
         }
+
+        [Test]
+        public void CheckIfSumOfGradesReturnsCorrectLetter()
+        {
+            Employee testUser = new Employee("Bogumi³a", "Bogumilska");
+            testUser.AddGrade(55);
+            testUser.AddGrade(100);
+            testUser.AddGrade(1);
+            var statistics = testUser.GetStatistics();
+
+            var result = statistics.AvarageLetter;
+
+            Assert.AreEqual('C', result);
+        }
+
     }
 }
