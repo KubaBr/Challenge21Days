@@ -29,3 +29,7 @@ Console.WriteLine($"Max: {statistic.Max}");
 Console.WriteLine($"Min: {statistic.Min}");
 Console.WriteLine($"Avarage: {statistic.Avarage:N2}");
 Console.WriteLine($"AvarageLetter: {statistic.AvarageLetter}");
+
+
+//przzygotowaćklase bazową PErson (imie nazwisko płeć), do tego konstruktoryi przerobić ja na abstrakcyjną
+//

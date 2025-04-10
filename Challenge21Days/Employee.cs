@@ -2,13 +2,11 @@
 
 namespace Challenge21Days
 {
-    public class Employee
+    public class Employee : Person
     {
-        List<float> grades = new List<float>();
-
-        
-        public string Name { get; private set; }
-        public string LastName { get; private set; }
+        List<float> grades = new List<float>();        
+        //public string Name { get; private set; }
+        //public string LastName { get; private set; }
 
 
         public float Result
@@ -19,16 +17,10 @@ namespace Challenge21Days
             }
         }
         public Employee(string name, string lastName)
+            : base(name, lastName)
         {
-            this.Name = name;
-            this.LastName = lastName;
         }
-        public Employee(string name)
-        {
-            this.Name = name;
-            this.LastName = "Brak nazwiska";
 
-        }
 
         public void AddGrade(float grade)
         {
