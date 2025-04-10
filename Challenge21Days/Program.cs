@@ -13,7 +13,15 @@ while (true)
     {
         break;
     }
-    user1.AddGrade(input);
+    try
+    {
+        user1.AddGrade(input);
+    }
+    catch(Exception e)
+    {
+        Console.WriteLine($"Exception cateched: {e.Message}");
+    }
+    
 }
 
 var statistic = user1.GetStatistics();

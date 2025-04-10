@@ -6,7 +6,7 @@ namespace Challenge21Days
     {
         List<float> grades = new List<float>();
 
-
+        
         public string Name { get; private set; }
         public string LastName { get; private set; }
 
@@ -38,7 +38,7 @@ namespace Challenge21Days
             }
             else
             {
-                Console.WriteLine("Grade out of the scope");
+                throw new Exception("Grade out of the scope");
             }
         }
         public void AddGrade(int grade)
@@ -55,7 +55,7 @@ namespace Challenge21Days
             }
             else
             {
-                Console.WriteLine("String is not possible to convert");
+                throw new Exception("String is not possible to convert");
             }
         }
 
@@ -68,7 +68,7 @@ namespace Challenge21Days
             }
             else
             {
-                Console.WriteLine("Number outside float range");
+                throw new Exception("Number outside float range");
             }
 
         }
@@ -83,7 +83,7 @@ namespace Challenge21Days
             }
             else
             {
-                Console.WriteLine("Number outside float range");
+                throw new Exception("Number outside float range");
             }
 
         }
@@ -114,8 +114,8 @@ namespace Challenge21Days
                     this.grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Insert correct letter");
-                    break;
+                    throw new Exception("Insert correct letter");                    
+
             }
 
         }
