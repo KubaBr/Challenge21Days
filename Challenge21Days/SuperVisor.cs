@@ -1,10 +1,15 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Challenge21Days
 {
-    public class Employee : IEmployee
+    public class SuperVisor
     {
-        List<float> grades = new List<float>();        
+
+        List<float> grades = new List<float>();
         public string Name { get; private set; }
         public string LastName { get; private set; }
 
@@ -16,7 +21,7 @@ namespace Challenge21Days
                 return this.grades.Sum();
             }
         }
-        public Employee(string name, string lastName)
+        public SuperVisor(string name, string lastName)
 
         {
             this.Name = name;
@@ -43,14 +48,38 @@ namespace Challenge21Days
 
         public void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float result))
+            int modifier = 0;
+            int score = 0;
+
+            if (grade.Contains('+'))
+                modifier = 5;
+            else if (grade.Contains('-'))
+                modifier = -5;
+
+            string temporaryGrade = grade.Trim('+', '-');
+
+            switch (temporaryGrade)
             {
-                this.AddGrade(result);
+                case "6":
+                    score = 100;
+                    break;
+                case "5":
+                    score = 80;
+                    break;
+                case "4":
+                    score = 60;
+                    break;
+                case "3":
+                    score = 40;
+                    break;
+                case "2":
+                    score = 20;
+                    break;
+                case "1":
+                    score = 0;
+                    break;
             }
-            else
-            {
-                throw new Exception("String is not possible to convert");
-            }
+            this.AddGrade(score + modifier);
         }
 
         public void AddGrade(double grade)
@@ -108,7 +137,7 @@ namespace Challenge21Days
                     this.grades.Add(20);
                     break;
                 default:
-                    throw new Exception("Insert correct letter");                    
+                    throw new Exception("Insert correct letter");
 
             }
 
@@ -156,7 +185,5 @@ namespace Challenge21Days
             return statistics;
         }
 
-
     }
-
 }
